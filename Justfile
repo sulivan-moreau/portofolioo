@@ -24,7 +24,7 @@ down:
 
 # Lance le frontend
 front:
-    python3 -m http.server 3000 --directory front
+    python3 -m http.server 8080 --directory front
 
 # Formate le code avec black
 format:
@@ -47,7 +47,7 @@ all: install
     @echo "🚀 Lancement du portfolio..."
     just up
     @echo "✅ Portfolio lancé!"
-    @echo "🎨 Frontend: http://localhost:3000"
+    @echo "🎨 Frontend: http://localhost:8080"
 
 # Affiche les logs
 logs:
