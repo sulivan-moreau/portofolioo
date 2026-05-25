@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Polymarket Trading Agent — Sulivan Moreau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="tb-brand"><span class="logo"><i></i></span><span>moreau_dag</span></div>
+  <div class="tb-path">
+    <a href="../04 - DAG.html"><b>portfolios</b></a><span class="sep">/</span>
+    <a href="../04 - DAG.html#load">projects</a><span class="sep">/</span>
+    <span class="cur crumb">polymarket_agent</span>
+  </div>
+  <a class="tb-back" href="../04 - DAG.html#load"><span class="arr">←</span> back to portfolio</a>
+</div>
+
+<main>
+
+  <section class="task" id="overview">
+    <div class="task-hd">
+      <div class="l"><span class="id">[job_04]</span><span class="nm">polymarket_trading_agent</span><span class="badge ext">R&amp;D · MULTI-AGENT</span></div>
+      <div class="r"><span class="stat run">paper-trading</span></div>
+    </div>
+    <div class="task-bd hero">
+      <div class="hero-grid">
+        <div data-reveal>
+          <div class="eyebrow">Projet 04 — research</div>
+          <h1>Polymarket —<br>un agent<br>qui <span class="o">parie comme</span><br>un <span class="g">statisticien</span>.</h1>
+          <p class="lead">Système multi-agent Python qui scanne Polymarket, repère les paris mal pricés, dimensionne la mise via le critère de <strong>Kelly</strong> et orchestre l'exécution. R&amp;D personnelle, paper-trading actif.</p>
+
+          <div class="meta-grid">
+            <div class="cell"><div class="k">type</div><div class="v">R&amp;D · trading agent</div></div>
+            <div class="cell"><div class="k">mode</div><div class="v"><b>● paper-trading</b></div></div>
+            <div class="cell"><div class="k">architecture</div><div class="v">multi-agent</div></div>
+            <div class="cell"><div class="k">sizing</div><div class="v">Kelly Criterion</div></div>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn primary" href="#architecture">voir l'architecture <span class="arr">→</span></a>
+            <a class="btn" href="#">github</a>
+          </div>
+        </div>
+
+        <div class="arch-card" data-reveal>
+          <div class="hd"><span>dag · agent_swarm</span><b>● paper</b></div>
+          <svg class="arch-svg" viewBox="0 0 400 280" preserveAspectRatio="xMidYMid meet">
+            <path class="edge flow" d="M 80 90 C 130 90, 130 140, 180 80"></path>
+            <path class="edge flow" d="M 80 170 C 130 170, 130 140, 180 200"></path>
+            <path class="edge flow" d="M 240 80 C 280 80, 280 140, 320 140"></path>
+            <path class="edge flow" d="M 240 200 C 280 200, 280 140, 320 140"></path>
+            <g><rect class="node-rect s" x="10" y="70" width="70" height="40" rx="6"/><text class="t" x="20" y="86">FEED</text><text x="20" y="101">markets</text></g>
+            <g><rect class="node-rect s" x="10" y="150" width="70" height="40" rx="6"/><text class="t" x="20" y="166">FEED</text><text x="20" y="181">news</text></g>
+            <g><rect class="node-rect r" x="180" y="55" width="60" height="50" rx="7"/><text class="t" x="188" y="71">AGENT</text><text x="188" y="86">research</text><text class="d" x="188" y="98">proba</text></g>
+            <g><rect class="node-rect r" x="180" y="175" width="60" height="50" rx="7"/><text class="t" x="188" y="191">AGENT</text><text x="188" y="206">strategy</text><text class="d" x="188" y="218">edge</text></g>
+            <g><rect class="node-rect a" x="320" y="115" width="70" height="50" rx="7"/><text class="a" x="328" y="131">SIZING</text><text x="328" y="148">kelly</text><text class="d" x="328" y="160">→ execute</text></g>
+          </svg>
+          <div class="foot">
+            <div class="s"><div class="k">markets</div><div class="v" style="color:var(--dim)">—</div></div>
+            <div class="s"><div class="k">edge</div><div class="v" style="color:var(--dim)">—</div></div>
+            <div class="s"><div class="k">runs</div><div class="v" style="color:var(--dim)">—</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="task" id="architecture">
+    <div class="task-hd"><div class="l"><span class="id">[01]</span><span class="nm">architecture</span><span class="badge tra">MULTI-AGENT</span></div><div class="r"><span class="stat">documented</span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 01 — architecture</div>
+      <h2 class="sec">Trois agents, <em>une décision</em>.</h2>
+      <p class="desc">L'agent <strong>research</strong> consomme les marchés Polymarket et un flux d'actualités pour produire une probabilité a-posteriori. L'agent <strong>strategy</strong> compare cette probabilité aux odds de marché pour calculer l'edge. L'agent <strong>sizing</strong> applique le critère de <strong>Kelly fractionnaire</strong> pour dimensionner la mise. Tout l'orchestre est exposé en API FastAPI.</p>
+
+      <!-- code snippet à ajouter si pertinent --></div></section>
+
+  <section class="task" id="highlights">
+    <div class="task-hd"><div class="l"><span class="id">[02]</span><span class="nm">highlights</span><span class="badge ext">RUN_LOG</span></div><div class="r"><span>events <b style="color:var(--fg)">4</b></span><span class="stat">success</span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 02 — highlights</div>
+      <h2 class="sec">Le <em>fil</em> de la R&amp;D.</h2>
+      <div class="log" data-reveal>
+        <div class="lhd"><span class="nm">polymarket_agent<span class="at">::research</span></span><span class="dur" style="color:var(--muted)">durée · à compléter</span></div>
+        <div class="lbd">
+          <div class="line"><span class="t">step_01</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+          <div class="line"><span class="t">step_02</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+          <div class="line"><span class="t">step_03</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+          <div class="line"><span class="t">step_04</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="task" id="impact">
+    <div class="task-hd"><div class="l"><span class="id">[03]</span><span class="nm">impact</span><span class="badge lod">METRICS</span></div><div class="r"><span class="stat">paper</span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 03 — impact</div>
+      <h2 class="sec">Performance <em>paper-trading</em>.</h2>
+      <div class="metrics" data-reveal>
+        <div class="metric"><div class="k">marchés scannés / h</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+        <div class="metric"><div class="k">edge moyen détecté</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+        <div class="metric"><div class="k">drawdown max</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+        <div class="metric"><div class="k">positions ouvertes</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="task" id="stack">
+    <div class="task-hd"><div class="l"><span class="id">[04]</span><span class="nm">stack</span><span class="badge ext">SCHEMA</span></div><div class="r"><span>rows <b style="color:var(--fg)">6</b></span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 04 — stack</div>
+      <h2 class="sec">La <em>stack</em>.</h2>
+      <div class="schema" data-reveal>
+        <div class="sh-hd"><span></span><span>tool</span><span>role</span><span class="nu-h">criticality</span></div>
+        <div class="sh-row"><span class="pk">PK</span><span class="col">python</span><span class="typ">language</span><span class="nu">critical</span></div>
+        <div class="sh-row"><span class="pk">PK</span><span class="col">fastapi</span><span class="typ">api</span><span class="nu">high</span></div>
+        <div class="sh-row"><span></span><span class="col">multi_agent</span><span class="typ">pattern</span><span class="nu">high</span></div>
+        <div class="sh-row"><span></span><span class="col">kelly_criterion</span><span class="typ">math</span><span class="nu">critical</span></div>
+        <div class="sh-row"><span></span><span class="col">postgres</span><span class="typ">storage</span><span class="nu">medium</span></div>
+        <div class="sh-row"><span></span><span class="col">async_io</span><span class="typ">concurrency</span><span class="nu">high</span></div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="proj-nav">
+    <a class="prev" href="03-restopilot.html"><span class="k">RestoPilot</span><span class="v">SaaS gestion restaurant</span></a>
+    <a class="next" href="05-nlp-classification.html"><span class="k">NLP Classification</span><span class="v">Modèle de classification texte</span></a>
+  </nav>
+
+</main>
+
+<footer><div>job_04 · polymarket_agent · <b>research</b></div><div>paper-trading · running</div></footer>
+
+<script>
+const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.08});
+document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

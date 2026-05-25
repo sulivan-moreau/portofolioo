@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>API REST containerisée — Sulivan Moreau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="tb-brand"><span class="logo"><i></i></span><span>moreau_dag</span></div>
+  <div class="tb-path">
+    <a href="../04 - DAG.html"><b>portfolios</b></a><span class="sep">/</span>
+    <a href="../04 - DAG.html#load">projects</a><span class="sep">/</span>
+    <span class="cur crumb">rest_api_docker</span>
+  </div>
+  <a class="tb-back" href="../04 - DAG.html#load"><span class="arr">←</span> back to portfolio</a>
+</div>
+
+<main>
+
+  <section class="task" id="overview">
+    <div class="task-hd">
+      <div class="l"><span class="id">[job_07]</span><span class="nm">rest_api_docker</span><span class="badge lod">DEVOPS</span></div>
+      <div class="r"><span class="stat">live</span></div>
+    </div>
+    <div class="task-bd hero">
+      <div class="hero-grid">
+        <div data-reveal>
+          <div class="eyebrow">Projet 07 — devops</div>
+          <h1>API REST<br><span class="o">containerisée</span>, <br>déployée en<br><span class="g">production</span>.</h1>
+          <p class="lead">Service REST conteneurisé avec Docker, CI/CD automatisée du commit jusqu'au déploiement, observabilité de base (logs structurés, métriques, health checks). Un blueprint réutilisable.</p>
+
+          <div class="meta-grid">
+            <div class="cell"><div class="k">type</div><div class="v">DevOps · service</div></div>
+            <div class="cell"><div class="k">status</div><div class="v"><b>● in production</b></div></div>
+            <div class="cell"><div class="k">deploy</div><div class="v">CI/CD · auto</div></div>
+            <div class="cell"><div class="k">runtime</div><div class="v">Docker · container</div></div>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn primary" href="#architecture">voir le flow <span class="arr">→</span></a>
+            <a class="btn" href="#">github</a>
+          </div>
+        </div>
+
+        <div class="arch-card" data-reveal>
+          <div class="hd"><span>dag · ci_cd</span><b>● deployed</b></div>
+          <svg class="arch-svg" viewBox="0 0 400 280" preserveAspectRatio="xMidYMid meet">
+            <path class="edge flow" d="M 80 140 L 120 140"></path>
+            <path class="edge flow" d="M 180 140 L 220 140"></path>
+            <path class="edge flow" d="M 280 140 L 320 140"></path>
+            <path class="edge flow" d="M 380 140 L 380 80" stroke="#5EE6A8" stroke-dasharray="4 4"></path>
+            <g><rect class="node-rect s" x="10" y="115" width="70" height="50" rx="6"/><text class="t" x="20" y="131">SOURCE</text><text x="20" y="148">git push</text><text class="d" x="20" y="160">main</text></g>
+            <g><rect class="node-rect r" x="120" y="115" width="60" height="50" rx="6"/><text class="t" x="128" y="131">CI</text><text x="128" y="148">test</text><text class="d" x="128" y="160">+ lint</text></g>
+            <g><rect class="node-rect r" x="220" y="115" width="60" height="50" rx="6"/><text class="t" x="228" y="131">BUILD</text><text x="228" y="148">docker</text><text class="d" x="228" y="160">→ registry</text></g>
+            <g><rect class="node-rect a" x="320" y="115" width="70" height="50" rx="6"/><text class="a" x="328" y="131">DEPLOY</text><text x="328" y="148">prod</text><text class="d" x="328" y="160">rolling</text></g>
+            <g><rect class="node-rect s" x="345" y="40" width="60" height="36" rx="6"/><text class="s" x="353" y="55">METRICS</text><text x="353" y="69">grafana</text></g>
+          </svg>
+          <div class="foot">
+            <div class="s"><div class="k">deploy time</div><div class="v" style="color:var(--dim)">—</div></div>
+            <div class="s"><div class="k">downtime</div><div class="v" style="color:var(--dim)">—</div></div>
+            <div class="s"><div class="k">uptime</div><div class="v" style="color:var(--dim)">—</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="task" id="architecture">
+    <div class="task-hd"><div class="l"><span class="id">[01]</span><span class="nm">architecture</span><span class="badge tra">CI/CD</span></div><div class="r"><span class="stat">documented</span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 01 — flow</div>
+      <h2 class="sec">Du commit au <em>prod</em> en quelques minutes.</h2>
+      <p class="desc">Le repo Git déclenche une CI à chaque push : lint, tests unitaires, construction de l'image Docker, push vers la registry. Le déploiement en production se fait en <strong>rolling update</strong>, avec zéro downtime grâce aux health checks. Les métriques applicatives remontent vers Grafana ; les logs sont structurés en JSON.</p>
+
+      <!-- code snippet à ajouter si pertinent --></div></section>
+
+  <section class="task" id="highlights">
+    <div class="task-hd"><div class="l"><span class="id">[02]</span><span class="nm">highlights</span><span class="badge ext">RUN_LOG</span></div><div class="r"><span>events <b style="color:var(--fg)">5</b></span><span class="stat">success</span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 02 — highlights</div>
+      <h2 class="sec">Ce qui est <em>en place</em>.</h2>
+      <div class="log" data-reveal>
+        <div class="lhd"><span class="nm">rest_api_docker<span class="at">::v1.0</span></span><span class="dur" style="color:var(--muted)">durée · à compléter</span></div>
+        <div class="lbd">
+          <div class="line"><span class="t">step_01</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+          <div class="line"><span class="t">step_02</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+          <div class="line"><span class="t">step_03</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+          <div class="line"><span class="t">step_04</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+          <div class="line"><span class="t">step_05</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="task" id="impact">
+    <div class="task-hd"><div class="l"><span class="id">[03]</span><span class="nm">impact</span><span class="badge lod">METRICS</span></div><div class="r"><span class="stat">measured</span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 03 — impact</div>
+      <h2 class="sec">Le service en <span class="mint">chiffres</span>.</h2>
+      <div class="metrics" data-reveal>
+        <div class="metric"><div class="k">uptime</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+        <div class="metric"><div class="k">deploy time</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+        <div class="metric"><div class="k">latence p95</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+        <div class="metric"><div class="k">image size</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="task" id="stack">
+    <div class="task-hd"><div class="l"><span class="id">[04]</span><span class="nm">stack</span><span class="badge ext">SCHEMA</span></div><div class="r"><span>rows <b style="color:var(--fg)">6</b></span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 04 — stack</div>
+      <h2 class="sec">La <em>stack</em>.</h2>
+      <div class="schema" data-reveal>
+        <div class="sh-hd"><span></span><span>tool</span><span>role</span><span class="nu-h">criticality</span></div>
+        <div class="sh-row"><span class="pk">PK</span><span class="col">docker</span><span class="typ">container</span><span class="nu">critical</span></div>
+        <div class="sh-row"><span class="pk">PK</span><span class="col">fastapi</span><span class="typ">api_framework</span><span class="nu">critical</span></div>
+        <div class="sh-row"><span></span><span class="col">github_actions</span><span class="typ">ci_cd</span><span class="nu">high</span></div>
+        <div class="sh-row"><span></span><span class="col">prometheus</span><span class="typ">metrics</span><span class="nu">medium</span></div>
+        <div class="sh-row"><span></span><span class="col">grafana</span><span class="typ">observability</span><span class="nu">medium</span></div>
+        <div class="sh-row"><span></span><span class="col">pytest</span><span class="typ">testing</span><span class="nu">high</span></div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="proj-nav">
+    <a class="prev" href="06-kmeans-segmentation.html"><span class="k">Segmentation KMeans</span><span class="v">Clustering client</span></a>
+    <a class="next" href="../04 - DAG.html#load"><span class="k">Retour au portfolio</span><span class="v">Tous les projets →</span></a>
+  </nav>
+
+</main>
+
+<footer><div>job_07 · rest_api_docker · <b>v1.0</b></div><div>uptime 99.95% · </div></footer>
+
+<script>
+const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.08});
+document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

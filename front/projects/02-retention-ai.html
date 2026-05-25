@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>RetentionAI — Sulivan Moreau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="tb-brand"><span class="logo"><i></i></span><span>moreau_dag</span></div>
+  <div class="tb-path">
+    <a href="../04 - DAG.html"><b>portfolios</b></a><span class="sep">/</span>
+    <a href="../04 - DAG.html#load">projects</a><span class="sep">/</span>
+    <span class="cur crumb">retention_ai</span>
+  </div>
+  <a class="tb-back" href="../04 - DAG.html#load"><span class="arr">←</span> back to portfolio</a>
+</div>
+
+<main>
+
+  <section class="task" id="overview">
+    <div class="task-hd">
+      <div class="l">
+        <span class="id">[job_02]</span>
+        <span class="nm">retention_ai</span>
+        <span class="badge tra">ML · SaaS</span>
+      </div>
+      <div class="r"><span class="stat run">running</span></div>
+    </div>
+    <div class="task-bd hero">
+      <div class="hero-grid">
+        <div data-reveal>
+          <div class="eyebrow">Projet 02 — prediction</div>
+          <h1>RetentionAI —<br>prédire le <span class="o">turnover</span><br>avant qu'il <span class="g">arrive</span>.</h1>
+          <p class="lead">SaaS de prédiction du turnover RH. Un pipeline ML end-to-end qui ingère les signaux faibles, score chaque collaborateur quotidiennement et alerte les managers.</p>
+
+          <div class="meta-grid">
+            <div class="cell"><div class="k">type</div><div class="v">SaaS · B2B RH</div></div>
+            <div class="cell"><div class="k">status</div><div class="v"><b>● closed beta</b></div></div>
+            <div class="cell"><div class="k">rôle</div><div class="v">Full-stack ML</div></div>
+            <div class="cell"><div class="k">latency</div><div class="v" style="color:var(--muted)">à compléter</div></div>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn primary" href="#architecture">voir l'architecture <span class="arr">→</span></a>
+            <a class="btn" href="#">github</a>
+          </div>
+        </div>
+
+        <div class="arch-card" data-reveal>
+          <div class="hd"><span>dag · retention_pipeline</span><b>● running</b></div>
+          <svg class="arch-svg" viewBox="0 0 400 280" preserveAspectRatio="xMidYMid meet">
+            <path class="edge flow" d="M 80 90 C 130 90, 130 140, 180 140"></path>
+            <path class="edge flow" d="M 80 170 C 130 170, 130 140, 180 140"></path>
+            <path class="edge flow" d="M 260 140 C 290 140, 290 140, 320 140"></path>
+            <path class="edge flow" d="M 380 140 L 380 80" stroke-dasharray="4 4" stroke="#5EE6A8"></path>
+            <g><rect class="node-rect s" x="10" y="70" width="70" height="40" rx="6"/><text class="t" x="20" y="86">SOURCE</text><text x="20" y="101">hr_data</text></g>
+            <g><rect class="node-rect s" x="10" y="150" width="70" height="40" rx="6"/><text class="t" x="20" y="166">SOURCE</text><text x="20" y="181">survey_api</text></g>
+            <g><rect class="node-rect r" x="180" y="115" width="80" height="50" rx="7"/><text class="t" x="190" y="131">FEATURES</text><text x="190" y="148">eng + scale</text><text class="d" x="190" y="160">42 features</text></g>
+            <g><rect class="node-rect r" x="320" y="115" width="60" height="50" rx="7"/><text class="t" x="328" y="131">MODEL</text><text x="328" y="148">xgboost</text><text class="d" x="328" y="160">f1: .87</text></g>
+            <g><rect class="node-rect s" x="350" y="40" width="50" height="34" rx="6"/><text class="s" x="358" y="54">ALERT</text><text x="358" y="69">slack</text></g>
+          </svg>
+          <div class="foot">
+            <div class="s"><div class="k">accuracy</div><div class="v" style="color:var(--dim)">—</div></div>
+            <div class="s"><div class="k">f1</div><div class="v" style="color:var(--dim)">—</div></div>
+            <div class="s"><div class="k">scored/d</div><div class="v" style="color:var(--dim)">—</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="task" id="architecture">
+    <div class="task-hd"><div class="l"><span class="id">[01]</span><span class="nm">architecture</span><span class="badge tra">ML PIPELINE</span></div><div class="r"><span class="stat">documented</span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 01 — architecture</div>
+      <h2 class="sec">Un pipeline ML, <em>industrialisé</em>.</h2>
+      <p class="desc">Le service consomme les données RH (ancienneté, package, mobilité, perf) et des signaux d'engagement issus de questionnaires courts. <strong>FastAPI</strong> expose un endpoint de scoring, <strong>PostgreSQL</strong> stocke l'historique des prédictions, et les alertes partent dans Slack ou par mail. Le modèle (gradient-boosted trees) est ré-entraîné chaque semaine sur les nouvelles données.</p>
+
+      <!-- code snippet à ajouter si pertinent --></div></section>
+
+  <section class="task" id="highlights">
+    <div class="task-hd"><div class="l"><span class="id">[02]</span><span class="nm">highlights</span><span class="badge ext">RUN_LOG</span></div><div class="r"><span>events <b style="color:var(--fg)">5</b></span><span class="stat">success</span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 02 — highlights</div>
+      <h2 class="sec">Ce qui a été <em>livré</em>.</h2>
+      <div class="log" data-reveal>
+        <div class="lhd"><span class="nm">retention_ai<span class="at">::beta</span></span><span class="dur" style="color:var(--muted)">durée · à compléter</span></div>
+        <div class="lbd">
+          <div class="line"><span class="t">step_01</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+          <div class="line"><span class="t">step_02</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+          <div class="line"><span class="t">step_03</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+          <div class="line"><span class="t">step_04</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+          <div class="line"><span class="t">step_05</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="task" id="impact">
+    <div class="task-hd"><div class="l"><span class="id">[03]</span><span class="nm">impact</span><span class="badge lod">METRICS</span></div><div class="r"><span class="stat">measured</span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 03 — impact</div>
+      <h2 class="sec">Performance du <span class="mint">modèle</span>.</h2>
+      <div class="metrics" data-reveal>
+        <div class="metric"><div class="k">F1 score</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+        <div class="metric"><div class="k">precision @ top-10%</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+        <div class="metric"><div class="k">latency p95</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+        <div class="metric"><div class="k">collaborateurs scorés / j</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="task" id="stack">
+    <div class="task-hd"><div class="l"><span class="id">[04]</span><span class="nm">stack</span><span class="badge ext">SCHEMA</span></div><div class="r"><span>rows <b style="color:var(--fg)">6</b></span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 04 — stack</div>
+      <h2 class="sec">La <em>stack</em> du service.</h2>
+      <div class="schema" data-reveal>
+        <div class="sh-hd"><span></span><span>tool</span><span>role</span><span class="nu-h">criticality</span></div>
+        <div class="sh-row"><span class="pk">PK</span><span class="col">python</span><span class="typ">language</span><span class="nu">critical</span></div>
+        <div class="sh-row"><span class="pk">PK</span><span class="col">fastapi</span><span class="typ">api_framework</span><span class="nu">critical</span></div>
+        <div class="sh-row"><span></span><span class="col">postgres</span><span class="typ">database</span><span class="nu">high</span></div>
+        <div class="sh-row"><span></span><span class="col">xgboost</span><span class="typ">ml_model</span><span class="nu">high</span></div>
+        <div class="sh-row"><span></span><span class="col">scikit_learn</span><span class="typ">ml_lib</span><span class="nu">medium</span></div>
+        <div class="sh-row"><span></span><span class="col">docker</span><span class="typ">container</span><span class="nu">medium</span></div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="proj-nav">
+    <a class="prev" href="01-hr-data-warehouse.html"><span class="k">HR Data Warehouse</span><span class="v">Oracle · Talend · SCD2</span></a>
+    <a class="next" href="03-restopilot.html"><span class="k">RestoPilot</span><span class="v">SaaS gestion restaurant</span></a>
+  </nav>
+
+</main>
+
+<footer>
+  <div>job_02 · retention_ai · <b>beta</b></div>
+  <div>à compléter</div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.08});
+document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Segmentation KMeans — Sulivan Moreau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="tb-brand"><span class="logo"><i></i></span><span>moreau_dag</span></div>
+  <div class="tb-path">
+    <a href="../04 - DAG.html"><b>portfolios</b></a><span class="sep">/</span>
+    <a href="../04 - DAG.html#load">projects</a><span class="sep">/</span>
+    <span class="cur crumb">kmeans_segmentation</span>
+  </div>
+  <a class="tb-back" href="../04 - DAG.html#load"><span class="arr">←</span> back to portfolio</a>
+</div>
+
+<main>
+
+  <section class="task" id="overview">
+    <div class="task-hd">
+      <div class="l"><span class="id">[job_06]</span><span class="nm">kmeans_segmentation</span><span class="badge tra">STATS · UNSUPERVISED</span></div>
+      <div class="r"><span class="stat">shipped</span></div>
+    </div>
+    <div class="task-bd hero">
+      <div class="hero-grid">
+        <div data-reveal>
+          <div class="eyebrow">Projet 06 — clustering</div>
+          <h1>Segmentation<br>client par<br><span class="o">KMeans</span> — du<br>cluster à l'<span class="g">insight</span>.</h1>
+          <p class="lead">Analyse non-supervisée d'une base client : feature engineering RFM-like, choix du k optimal (méthode du coude + silhouette), KMeans, puis lecture business des clusters et recommandations marketing.</p>
+
+          <div class="meta-grid">
+            <div class="cell"><div class="k">type</div><div class="v">Stats · clustering</div></div>
+            <div class="cell"><div class="k">méthode</div><div class="v">KMeans · silhouette</div></div>
+            <div class="cell"><div class="k">livrable</div><div class="v">5 segments · plan d'action</div></div>
+            <div class="cell"><div class="k">approach</div><div class="v">unsupervised</div></div>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn primary" href="#architecture">voir l'analyse <span class="arr">→</span></a>
+            <a class="btn" href="#">github</a>
+          </div>
+        </div>
+
+        <div class="arch-card" data-reveal>
+          <div class="hd"><span>dag · clustering</span><b>● shipped</b></div>
+          <svg class="arch-svg" viewBox="0 0 400 280" preserveAspectRatio="xMidYMid meet">
+            <path class="edge flow" d="M 80 140 L 120 140"></path>
+            <path class="edge flow" d="M 180 140 L 220 140"></path>
+            <path class="edge flow" d="M 280 140 C 310 140, 310 90, 340 90"></path>
+            <path class="edge flow" d="M 280 140 C 310 140, 310 140, 340 140"></path>
+            <path class="edge flow" d="M 280 140 C 310 140, 310 190, 340 190"></path>
+            <g><rect class="node-rect s" x="10" y="115" width="70" height="50" rx="6"/><text class="t" x="20" y="131">DATA</text><text x="20" y="148">customers</text><text class="d" x="20" y="160">~25k rows</text></g>
+            <g><rect class="node-rect r" x="120" y="115" width="60" height="50" rx="6"/><text class="t" x="128" y="131">FEATURES</text><text x="128" y="148">RFM-like</text><text class="d" x="128" y="160">scale</text></g>
+            <g><rect class="node-rect r" x="220" y="115" width="60" height="50" rx="6"/><text class="t" x="228" y="131">KMEANS</text><text x="228" y="148">k=5</text><text class="d" x="228" y="160">silh .42</text></g>
+            <g><rect class="node-rect a" x="340" y="75" width="50" height="30" rx="6"/><text class="a" x="348" y="92">SEG_A</text></g>
+            <g><rect class="node-rect s" x="340" y="125" width="50" height="30" rx="6"/><text class="s" x="348" y="142">SEG_B</text></g>
+            <g><rect class="node-rect a" x="340" y="175" width="50" height="30" rx="6"/><text class="a" x="348" y="192">SEG_C..E</text></g>
+          </svg>
+          <div class="foot">
+            <div class="s"><div class="k">k</div><div class="v" style="color:var(--dim)">—</div></div>
+            <div class="s"><div class="k">silhouette</div><div class="v" style="color:var(--dim)">—</div></div>
+            <div class="s"><div class="k">rows</div><div class="v" style="color:var(--dim)">—</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="task" id="architecture">
+    <div class="task-hd"><div class="l"><span class="id">[01]</span><span class="nm">architecture</span><span class="badge tra">PIPELINE</span></div><div class="r"><span class="stat">documented</span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 01 — pipeline</div>
+      <h2 class="sec">Du <em>data brut</em> aux segments actionnables.</h2>
+      <p class="desc">Construction de features inspirées du framework <strong>RFM</strong> (Récence, Fréquence, Montant) enrichies de signaux de mix produit. Standardisation des variables, choix du k par <strong>coude + silhouette</strong>, fit KMeans, puis interprétation business : chaque cluster est nommé, profilé et associé à un plan d'action marketing concret.</p>
+    </div>
+  </section>
+
+  <section class="task" id="highlights">
+    <div class="task-hd"><div class="l"><span class="id">[02]</span><span class="nm">highlights</span><span class="badge ext">RUN_LOG</span></div><div class="r"><span>events <b style="color:var(--fg)">5</b></span><span class="stat">success</span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 02 — highlights</div>
+      <h2 class="sec">Le <em>fil</em> de l'analyse.</h2>
+      <div class="log" data-reveal>
+        <div class="lhd"><span class="nm">kmeans_segmentation<span class="at">::analysis</span></span><span class="dur" style="color:var(--muted)">durée · à compléter</span></div>
+        <div class="lbd">
+          <div class="line"><span class="t">step_01</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+          <div class="line"><span class="t">step_02</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+          <div class="line"><span class="t">step_03</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+          <div class="line"><span class="t">step_04</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+          <div class="line"><span class="t">step_05</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="task" id="impact">
+    <div class="task-hd"><div class="l"><span class="id">[03]</span><span class="nm">impact</span><span class="badge lod">METRICS</span></div><div class="r"><span class="stat">measured</span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 03 — impact</div>
+      <h2 class="sec">L'analyse en <span class="mint">chiffres</span>.</h2>
+      <div class="metrics" data-reveal>
+        <div class="metric"><div class="k">clients segmentés</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+        <div class="metric"><div class="k">k optimal</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+        <div class="metric"><div class="k">silhouette moyenne</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+        <div class="metric"><div class="k">features</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="task" id="stack">
+    <div class="task-hd"><div class="l"><span class="id">[04]</span><span class="nm">stack</span><span class="badge ext">SCHEMA</span></div><div class="r"><span>rows <b style="color:var(--fg)">6</b></span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 04 — stack</div>
+      <h2 class="sec">La <em>stack</em>.</h2>
+      <div class="schema" data-reveal>
+        <div class="sh-hd"><span></span><span>tool</span><span>role</span><span class="nu-h">criticality</span></div>
+        <div class="sh-row"><span class="pk">PK</span><span class="col">python</span><span class="typ">language</span><span class="nu">critical</span></div>
+        <div class="sh-row"><span class="pk">PK</span><span class="col">scikit_learn</span><span class="typ">ml_lib</span><span class="nu">critical</span></div>
+        <div class="sh-row"><span></span><span class="col">pandas</span><span class="typ">data</span><span class="nu">high</span></div>
+        <div class="sh-row"><span></span><span class="col">matplotlib</span><span class="typ">viz</span><span class="nu">medium</span></div>
+        <div class="sh-row"><span></span><span class="col">seaborn</span><span class="typ">viz</span><span class="nu">medium</span></div>
+        <div class="sh-row"><span></span><span class="col">power_bi</span><span class="typ">deliverable</span><span class="nu">medium</span></div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="proj-nav">
+    <a class="prev" href="05-nlp-classification.html"><span class="k">NLP Classification</span><span class="v">Classification texte</span></a>
+    <a class="next" href="07-rest-api-docker.html"><span class="k">API REST containerisée</span><span class="v">Docker · CI/CD</span></a>
+  </nav>
+
+</main>
+
+<footer><div>job_06 · kmeans_segmentation · <b>shipped</b></div><div>5 segments · plan d'action livré</div></footer>
+
+<script>
+const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.08});
+document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

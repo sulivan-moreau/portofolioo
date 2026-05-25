@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portofolioo — Sulivan Moreau</title>
+  <meta name="description" content="Portfolio technique de Sulivan Moreau : projets data, IA et web statiques." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0b1014;--panel:#121a24;--panel-2:#172230;--line:#1e2a3a;--line-2:#2b3b50;--fg:#e6edf3;--muted:#7b8898;--dim:#4a5566;--coral:#ff7d5a;--mint:#5ee6a8;--amber:#ffc773;--mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;--sans:'Space Grotesk',system-ui,sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at top,rgba(255,125,90,.12),transparent 35%),var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.55}
+    body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);background-size:22px 22px;mask-image:radial-gradient(ellipse at 50% 30%,#000 30%,transparent 80%);pointer-events:none}
+    a{color:inherit;text-decoration:none}main{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:42px 24px 64px}
+    .hero,.card,.panel{background:rgba(18,26,36,.92);border:1px solid var(--line);border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.22)}
+    .hero{padding:34px}.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);display:flex;align-items:center;gap:10px}.eyebrow::before{content:"";width:24px;height:1px;background:var(--coral)}
+    h1{margin:14px 0 14px;font-size:clamp(2.4rem,5.5vw,4.8rem);line-height:1.02;letter-spacing:-.03em}.lead{max-width:62ch;color:var(--muted);font-size:1.05rem}.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 16px;border-radius:999px;border:1px solid var(--line-2);font-family:var(--mono);font-size:13px;transition:.2s ease}
+    .btn.primary{background:linear-gradient(135deg,var(--coral),#ff9f73);color:#160a06;border-color:var(--coral);font-weight:600}.btn.secondary:hover,.btn.primary:hover{transform:translateY(-1px)}.btn.secondary:hover{border-color:var(--coral);color:var(--coral)}
+    .section-title{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:30px 0 14px}.section-title h2{margin:0;font-size:1.55rem;letter-spacing:-.02em}.section-title p{margin:0;color:var(--muted);font-family:var(--mono);font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.card{padding:20px}.card h3{margin:10px 0 8px;font-size:1.1rem}.card p{margin:0;color:var(--muted)}.tag{display:inline-flex;padding:5px 9px;border-radius:999px;background:rgba(255,125,90,.12);color:var(--coral);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+    .layout{display:grid;grid-template-columns:1.5fr .9fr;gap:14px;margin-top:14px}@media (max-width:960px){.layout{grid-template-columns:1fr}}
+    .stack{display:grid;gap:14px}.project-list{display:grid;gap:10px}.project-link{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:rgba(15,22,32,.55);transition:.2s ease}.project-link:hover{border-color:var(--coral);transform:translateY(-1px)}.project-link span{color:var(--muted);font-family:var(--mono);font-size:11px}.project-link strong{display:block;margin-top:3px;font-size:14px}.project-link i{font-style:normal;color:var(--coral)}
+    .meta{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border-radius:12px;overflow:hidden}.meta .cell{background:var(--panel-2);padding:14px 16px}.meta .k{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:5px}.meta .v{color:var(--fg);font-size:13px}.footer{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-family:var(--mono);font-size:11px;color:var(--dim)}
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="eyebrow">portfolio technique · coolify ready</div>
+      <h1>Sulivan Moreau<br>Portfolio data, IA et web.</h1>
+      <p class="lead">Base propre pour présenter les projets avec des pages statiques. Pensé pour un VPS avec Coolify: simple à maintenir, facile à déployer, et sans dépendances inutiles.</p>
+      <div class="cta">
+        <a class="btn primary" href="/projects/01-hr-data-warehouse.html">Voir les projets</a>
+        <a class="btn secondary" href="/04 - DAG.html">Ouvrir le DAG</a>
+        <a class="btn secondary" href="#deployment">Déploiement VPS</a>
+      </div>
+    </section>
+
+    <div class="layout">
+      <section class="stack">
+        <div class="section-title"><h2>Projets mis en avant</h2><p>pages statiques</p></div>
+        <div class="project-list">
+          <a class="project-link" href="/projects/01-hr-data-warehouse.html"><div><span>01</span><strong>HR Data Warehouse</strong></div><i>→</i></a>
+          <a class="project-link" href="/projects/02-retention-ai.html"><div><span>02</span><strong>Retention AI</strong></div><i>→</i></a>
+          <a class="project-link" href="/projects/03-restopilot.html"><div><span>03</span><strong>Restopilot</strong></div><i>→</i></a>
+          <a class="project-link" href="/projects/04-polymarket-agent.html"><div><span>04</span><strong>Polymarket Agent</strong></div><i>→</i></a>
+          <a class="project-link" href="/projects/05-nlp-classification.html"><div><span>05</span><strong>NLP Classification</strong></div><i>→</i></a>
+          <a class="project-link" href="/projects/06-kmeans-segmentation.html"><div><span>06</span><strong>KMeans Segmentation</strong></div><i>→</i></a>
+          <a class="project-link" href="/projects/07-rest-api-docker.html"><div><span>07</span><strong>REST API Docker</strong></div><i>→</i></a>
+        </div>
+      </section>
+
+      <section class="stack" id="deployment">
+        <div class="section-title"><h2>Cadre de déploiement</h2><p>VPS / Coolify</p></div>
+        <div class="panel" style="padding:18px;">
+          <div class="tag">best practice</div>
+          <p style="margin:14px 0 0;color:var(--muted)">Le front est servi en statique, avec un déploiement simple sur Coolify/VPS.</p>
+        </div>
+        <div class="meta">
+          <div class="cell"><div class="k">front</div><div class="v">Nginx statique</div></div>
+          <div class="cell"><div class="k">delivery</div><div class="v">Docker Compose</div></div>
+          <div class="cell"><div class="k">hosting</div><div class="v">Coolify / VPS</div></div>
+          <div class="cell"><div class="k">maintainability</div><div class="v">simple et robuste</div></div>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer">
+      <div>portofolioo · ready for vps</div>
+      <div>localhost / coolify</div>
+    </div>
+  </main>
+</body>
+</html>

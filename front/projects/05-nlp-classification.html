@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NLP Classification — Sulivan Moreau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="tb-brand"><span class="logo"><i></i></span><span>moreau_dag</span></div>
+  <div class="tb-path">
+    <a href="../04 - DAG.html"><b>portfolios</b></a><span class="sep">/</span>
+    <a href="../04 - DAG.html#load">projects</a><span class="sep">/</span>
+    <span class="cur crumb">nlp_classification</span>
+  </div>
+  <a class="tb-back" href="../04 - DAG.html#load"><span class="arr">←</span> back to portfolio</a>
+</div>
+
+<main>
+
+  <section class="task" id="overview">
+    <div class="task-hd">
+      <div class="l"><span class="id">[job_05]</span><span class="nm">nlp_classification</span><span class="badge tra">ML · NLP</span></div>
+      <div class="r"><span class="stat">shipped</span></div>
+    </div>
+    <div class="task-bd hero">
+      <div class="hero-grid">
+        <div data-reveal>
+          <div class="eyebrow">Projet 05 — nlp</div>
+          <h1>Du <span class="o">texte brut</span><br>à la <span class="g">catégorie</span><br>en un appel d'API.</h1>
+          <p class="lead">Pipeline NLP complet de classification de texte : ingestion d'un corpus métier, nettoyage, vectorisation, entraînement et évaluation. Modèle servi sous forme d'API REST.</p>
+
+          <div class="meta-grid">
+            <div class="cell"><div class="k">type</div><div class="v">NLP · classification</div></div>
+            <div class="cell"><div class="k">status</div><div class="v"><b>● shipped</b></div></div>
+            <div class="cell"><div class="k">rôle</div><div class="v">ML engineer</div></div>
+            <div class="cell"><div class="k">approach</div><div class="v">supervised · multi-class</div></div>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn primary" href="#architecture">voir le pipeline <span class="arr">→</span></a>
+            <a class="btn" href="#">github</a>
+          </div>
+        </div>
+
+        <div class="arch-card" data-reveal>
+          <div class="hd"><span>dag · nlp_pipeline</span><b>● trained</b></div>
+          <svg class="arch-svg" viewBox="0 0 400 280" preserveAspectRatio="xMidYMid meet">
+            <path class="edge flow" d="M 80 140 L 120 140"></path>
+            <path class="edge flow" d="M 180 140 L 220 140"></path>
+            <path class="edge flow" d="M 280 140 L 320 140"></path>
+            <g><rect class="node-rect s" x="10" y="115" width="70" height="50" rx="6"/><text class="t" x="20" y="131">CORPUS</text><text x="20" y="148">raw_text</text><text class="d" x="20" y="160">~12k docs</text></g>
+            <g><rect class="node-rect r" x="120" y="115" width="60" height="50" rx="6"/><text class="t" x="128" y="131">CLEAN</text><text x="128" y="148">token+</text><text class="d" x="128" y="160">stopwords</text></g>
+            <g><rect class="node-rect r" x="220" y="115" width="60" height="50" rx="6"/><text class="t" x="228" y="131">VECTOR</text><text x="228" y="148">tf-idf</text><text class="d" x="228" y="160">~5k feat</text></g>
+            <g><rect class="node-rect a" x="320" y="115" width="70" height="50" rx="6"/><text class="a" x="328" y="131">MODEL</text><text x="328" y="148">logreg</text><text class="d" x="328" y="160">macro-f1 .82</text></g>
+          </svg>
+          <div class="foot">
+            <div class="s"><div class="k">classes</div><div class="v" style="color:var(--dim)">—</div></div>
+            <div class="s"><div class="k">macro-f1</div><div class="v" style="color:var(--dim)">—</div></div>
+            <div class="s"><div class="k">accuracy</div><div class="v" style="color:var(--dim)">—</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="task" id="architecture">
+    <div class="task-hd"><div class="l"><span class="id">[01]</span><span class="nm">architecture</span><span class="badge tra">PIPELINE</span></div><div class="r"><span class="stat">documented</span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 01 — pipeline</div>
+      <h2 class="sec">Un pipeline <em>classique</em>, propre et reproductible.</h2>
+      <p class="desc">Le corpus métier est nettoyé (lower-case, suppression des stop-words, lemmatisation), vectorisé en <strong>TF-IDF</strong>, et utilisé pour entraîner un classifieur logistique multi-classe. Évaluation par <strong>validation croisée stratifiée</strong> ; matrices de confusion par classe pour identifier les zones d'erreur. Le modèle est ensuite sérialisé et exposé en API.</p>
+    </div>
+  </section>
+
+  <section class="task" id="highlights">
+    <div class="task-hd"><div class="l"><span class="id">[02]</span><span class="nm">highlights</span><span class="badge ext">RUN_LOG</span></div><div class="r"><span>events <b style="color:var(--fg)">4</b></span><span class="stat">success</span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 02 — highlights</div>
+      <h2 class="sec">Le <em>fil</em> du projet.</h2>
+      <div class="log" data-reveal>
+        <div class="lhd"><span class="nm">nlp_classifier<span class="at">::v1</span></span><span class="dur" style="color:var(--muted)">durée · à compléter</span></div>
+        <div class="lbd">
+          <div class="line"><span class="t">step_01</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+          <div class="line"><span class="t">step_02</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+          <div class="line"><span class="t">step_03</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+          <div class="line"><span class="t">step_04</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="task" id="impact">
+    <div class="task-hd"><div class="l"><span class="id">[03]</span><span class="nm">impact</span><span class="badge lod">METRICS</span></div><div class="r"><span class="stat">measured</span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 03 — impact</div>
+      <h2 class="sec">Performance du <span class="mint">modèle</span>.</h2>
+      <div class="metrics" data-reveal>
+        <div class="metric"><div class="k">accuracy</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+        <div class="metric"><div class="k">macro-F1</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+        <div class="metric"><div class="k">corpus</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+        <div class="metric"><div class="k">latence inference</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="task" id="stack">
+    <div class="task-hd"><div class="l"><span class="id">[04]</span><span class="nm">stack</span><span class="badge ext">SCHEMA</span></div><div class="r"><span>rows <b style="color:var(--fg)">6</b></span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 04 — stack</div>
+      <h2 class="sec">La <em>stack</em>.</h2>
+      <div class="schema" data-reveal>
+        <div class="sh-hd"><span></span><span>tool</span><span>role</span><span class="nu-h">criticality</span></div>
+        <div class="sh-row"><span class="pk">PK</span><span class="col">python</span><span class="typ">language</span><span class="nu">critical</span></div>
+        <div class="sh-row"><span class="pk">PK</span><span class="col">scikit_learn</span><span class="typ">ml_lib</span><span class="nu">critical</span></div>
+        <div class="sh-row"><span></span><span class="col">tf_idf</span><span class="typ">vectorizer</span><span class="nu">high</span></div>
+        <div class="sh-row"><span></span><span class="col">logistic_reg</span><span class="typ">classifier</span><span class="nu">high</span></div>
+        <div class="sh-row"><span></span><span class="col">pandas</span><span class="typ">data</span><span class="nu">medium</span></div>
+        <div class="sh-row"><span></span><span class="col">fastapi</span><span class="typ">serving</span><span class="nu">medium</span></div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="proj-nav">
+    <a class="prev" href="04-polymarket-agent.html"><span class="k">Polymarket Agent</span><span class="v">Multi-agent · Kelly</span></a>
+    <a class="next" href="06-kmeans-segmentation.html"><span class="k">Segmentation KMeans</span><span class="v">Clustering client</span></a>
+  </nav>
+
+</main>
+
+<footer><div>job_05 · nlp_classification · <b>shipped</b></div><div>model · logreg + tf-idf</div></footer>
+
+<script>
+const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.08});
+document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

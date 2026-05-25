@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>RestoPilot — Sulivan Moreau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="tb-brand"><span class="logo"><i></i></span><span>moreau_dag</span></div>
+  <div class="tb-path">
+    <a href="../04 - DAG.html"><b>portfolios</b></a><span class="sep">/</span>
+    <a href="../04 - DAG.html#load">projects</a><span class="sep">/</span>
+    <span class="cur crumb">restopilot</span>
+  </div>
+  <a class="tb-back" href="../04 - DAG.html#load"><span class="arr">←</span> back to portfolio</a>
+</div>
+
+<main>
+
+  <section class="task" id="overview">
+    <div class="task-hd">
+      <div class="l"><span class="id">[job_03]</span><span class="nm">restopilot</span><span class="badge lod">SaaS · FULL-STACK</span></div>
+      <div class="r"><span class="stat">live</span></div>
+    </div>
+    <div class="task-bd hero">
+      <div class="hero-grid">
+        <div data-reveal>
+          <div class="eyebrow">Projet 03 — saas</div>
+          <h1>RestoPilot —<br>piloter un resto<br>en <span class="o">temps réel</span>.</h1>
+          <p class="lead">SaaS de gestion de restaurant full-stack. Du back-office métier (carte, stocks, équipe) jusqu'aux KPIs temps réel sur tablette : un seul outil qui parle aux gérants comme aux cuisiniers.</p>
+
+          <div class="meta-grid">
+            <div class="cell"><div class="k">type</div><div class="v">SaaS · B2B HoReCa</div></div>
+            <div class="cell"><div class="k">status</div><div class="v"><b>● in production</b></div></div>
+            <div class="cell"><div class="k">stack</div><div class="v">Full-stack</div></div>
+            <div class="cell"><div class="k">realtime</div><div class="v">websockets</div></div>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn primary" href="#architecture">voir l'architecture <span class="arr">→</span></a>
+            <a class="btn" href="#">github</a>
+          </div>
+        </div>
+
+        <div class="arch-card" data-reveal>
+          <div class="hd"><span>dag · restopilot</span><b>● live</b></div>
+          <svg class="arch-svg" viewBox="0 0 400 280" preserveAspectRatio="xMidYMid meet">
+            <path class="edge flow" d="M 80 60 C 130 60, 130 140, 180 140"></path>
+            <path class="edge flow" d="M 80 140 C 130 140, 130 140, 180 140"></path>
+            <path class="edge flow" d="M 80 220 C 130 220, 130 140, 180 140"></path>
+            <path class="edge flow" d="M 260 140 C 290 140, 290 90, 340 90"></path>
+            <path class="edge flow" d="M 260 140 C 290 140, 290 190, 340 190"></path>
+            <g><rect class="node-rect s" x="10" y="42" width="70" height="36" rx="6"/><text class="t" x="20" y="56">SOURCE</text><text x="20" y="71">POS</text></g>
+            <g><rect class="node-rect s" x="10" y="122" width="70" height="36" rx="6"/><text class="t" x="20" y="136">SOURCE</text><text x="20" y="151">stocks</text></g>
+            <g><rect class="node-rect s" x="10" y="202" width="70" height="36" rx="6"/><text class="t" x="20" y="216">SOURCE</text><text x="20" y="231">staff</text></g>
+            <g><rect class="node-rect r" x="180" y="115" width="80" height="50" rx="7"/><text class="t" x="190" y="131">BACKEND</text><text x="190" y="148">api · ws</text><text class="d" x="190" y="160">realtime</text></g>
+            <g><rect class="node-rect s" x="340" y="70" width="60" height="40" rx="6"/><text class="s" x="348" y="86">UI</text><text x="348" y="101">dashboard</text></g>
+            <g><rect class="node-rect a" x="340" y="170" width="60" height="40" rx="6"/><text class="a" x="348" y="186">UI</text><text x="348" y="201">tablet</text></g>
+          </svg>
+          <div class="foot">
+            <div class="s"><div class="k">modules</div><div class="v" style="color:var(--dim)">—</div></div>
+            <div class="s"><div class="k">uptime</div><div class="v" style="color:var(--dim)">—</div></div>
+            <div class="s"><div class="k">users</div><div class="v" style="color:var(--dim)">—</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="task" id="architecture">
+    <div class="task-hd"><div class="l"><span class="id">[01]</span><span class="nm">architecture</span><span class="badge tra">FULL-STACK</span></div><div class="r"><span class="stat">documented</span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 01 — architecture</div>
+      <h2 class="sec">Une app, <em>plusieurs personas</em>.</h2>
+      <p class="desc">Le back-end centralise les flux POS, stocks et plannings équipe. Les événements sont diffusés en temps réel via <strong>WebSocket</strong> vers les interfaces : un dashboard analytique pour les gérants, une vue tablette simplifiée en salle/cuisine. Chaque module est isolé et activable à la carte selon la formule du restaurant.</p>
+    </div>
+  </section>
+
+  <section class="task" id="highlights">
+    <div class="task-hd"><div class="l"><span class="id">[02]</span><span class="nm">highlights</span><span class="badge ext">RUN_LOG</span></div><div class="r"><span>events <b style="color:var(--fg)">5</b></span><span class="stat">success</span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 02 — highlights</div>
+      <h2 class="sec">Les <em>modules</em> livrés.</h2>
+      <div class="log" data-reveal>
+        <div class="lhd"><span class="nm">restopilot<span class="at">::v1.0</span></span><span class="dur" style="color:var(--muted)">durée · à compléter</span></div>
+        <div class="lbd">
+          <div class="line"><span class="t">step_01</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+          <div class="line"><span class="t">step_02</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+          <div class="line"><span class="t">step_03</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+          <div class="line"><span class="t">step_04</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+          <div class="line"><span class="t">step_05</span><span class="lv">INFO</span><span class="msg" style="color:var(--muted)">[à compléter — événement clé du projet]</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="task" id="impact">
+    <div class="task-hd"><div class="l"><span class="id">[03]</span><span class="nm">impact</span><span class="badge lod">METRICS</span></div><div class="r"><span class="stat">measured</span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 03 — impact</div>
+      <h2 class="sec">L'app en <span class="mint">chiffres</span>.</h2>
+      <div class="metrics" data-reveal>
+        <div class="metric"><div class="k">modules livrés</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+        <div class="metric"><div class="k">uptime</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+        <div class="metric"><div class="k">utilisateurs actifs</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+        <div class="metric"><div class="k">latence push</div><div class="v" style="color:var(--dim)">—</div><div class="d">à compléter</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="task" id="stack">
+    <div class="task-hd"><div class="l"><span class="id">[04]</span><span class="nm">stack</span><span class="badge ext">SCHEMA</span></div><div class="r"><span>rows <b style="color:var(--fg)">6</b></span></div></div>
+    <div class="task-bd">
+      <div class="eyebrow">section 04 — stack</div>
+      <h2 class="sec">La <em>stack</em>.</h2>
+      <div class="schema" data-reveal>
+        <div class="sh-hd"><span></span><span>tool</span><span>role</span><span class="nu-h">criticality</span></div>
+        <div class="sh-row"><span class="pk">PK</span><span class="col">python</span><span class="typ">backend</span><span class="nu">critical</span></div>
+        <div class="sh-row"><span class="pk">PK</span><span class="col">fastapi</span><span class="typ">api_framework</span><span class="nu">critical</span></div>
+        <div class="sh-row"><span></span><span class="col">postgres</span><span class="typ">database</span><span class="nu">high</span></div>
+        <div class="sh-row"><span></span><span class="col">websocket</span><span class="typ">realtime</span><span class="nu">high</span></div>
+        <div class="sh-row"><span></span><span class="col">frontend</span><span class="typ">spa</span><span class="nu">high</span></div>
+        <div class="sh-row"><span></span><span class="col">docker</span><span class="typ">deploy</span><span class="nu">medium</span></div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="proj-nav">
+    <a class="prev" href="02-retention-ai.html"><span class="k">RetentionAI</span><span class="v">Prédiction turnover</span></a>
+    <a class="next" href="04-polymarket-agent.html"><span class="k">Polymarket Agent</span><span class="v">Multi-agent · Kelly</span></a>
+  </nav>
+
+</main>
+
+<footer><div>job_03 · restopilot · <b>v1.0</b></div><div>live · in production</div></footer>
+
+<script>
+const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.08});
+document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
